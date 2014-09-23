@@ -1,0 +1,25 @@
+
+Running: ../TASR [v1.5.1]
+-f foobar.fof
+-s targets.fa
+-m 15
+-o 2
+-r 0.7
+-u 1
+-i 0
+-t 0
+-e 33
+-c 1
+ -q 10
+ -n 30
+
+Files
+-----
+Log:		foobar.fof.tasr_m15_o2_r0.7_u1_i0_t0_c1_k15_q10_n30_e33_s-targets.fa_pid32527.log
+Contigs:	foobar.fof.tasr_m15_o2_r0.7_u1_i0_t0_c1_k15_q10_n30_e33_s-targets.fa_pid32527.contigs
+Singlets:	foobar.fof.tasr_m15_o2_r0.7_u1_i0_t0_c1_k15_q10_n30_e33_s-targets.fa_pid32527.singlets
+Log file:	foobar.fof.tasr_m15_o2_r0.7_u1_i0_t0_c1_k15_q10_n30_e33_s-targets.fa_pid32527.log
+
+Coverage:	foobar.fof.tasr_m15_o2_r0.7_u1_i0_t0_c1_k15_q10_n30_e33_s-targets.fa_pid32527.coverage.csv
+Coordinates:	foobar.fof.tasr_m15_o2_r0.7_u1_i0_t0_c1_k15_q10_n30_e33_s-targets.fa_pid32527.readposition
+Pileup:		foobar.fof.tasr_m15_o2_r0.7_u1_i0_t0_c1_k15_q10_n30_e33_s-targets.fa_pid32527.pileup
