@@ -1,0 +1,22 @@
+=head2 Thu Apr 23 08:14:19 2015: C<Module> L<Bloom::Faster|Bloom::Faster>
+
+=over 4
+
+=item *
+
+C<installed into: ./bloom/lib>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.6>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+

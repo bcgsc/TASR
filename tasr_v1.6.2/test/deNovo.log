@@ -1,0 +1,44 @@
+
+Running: ../TASR [v1.6.2]
+-f NGSreads.fof
+-s targets.fa
+-w 0
+-k 15
+-m 15
+-o 2
+-r 0.7
+-u 0
+-i 1
+-t 0
+-e 33
+-c 1
+ -q 10
+ -n 30
+
+Files
+-----
+Log:		deNovo.log
+Contigs:	deNovo.contigs
+Singlets:	deNovo.singlets
+Log file:	deNovo.log
+
+Coverage:	deNovo.coverage.csv
+Coordinates:	deNovo.readposition
+Pileup:		deNovo.pileup
+
+=>Reading sequences. Initiated Fri Sep 23 08:29:45 PDT 2016
+Checking SRR066437.fastq...ok
+Checking sequence target file targets.fa...ok
+
+Using target sequence file targets.fa for this assembly.
+Note: ONLY sequences in targets.fa will be used as seeds (i.e. files listed in -f NGSreads.fof will NOT be used as seeds, only used for extension)
+
+Candidate sequence reads imported from file 1/1, SRR066437.fastq:
+337 sequences (135 unique overall)
+Total reads interrogated (total bases): 4738411 (156367563) -- human genome equivalent(s) = 0.052122521
+-i has been set to 1, which means the target sequences are USED for recruiting reads for de novo assembly, NOT target-based reference guided assemblies
+Number of unique target/seed sequences: 135
+
+=>Sequence assembly. Initiated Fri Sep 23 08:32:07 PDT 2016
+
+Contig assembly executed normally Fri Sep 23 08:32:07 PDT 2016

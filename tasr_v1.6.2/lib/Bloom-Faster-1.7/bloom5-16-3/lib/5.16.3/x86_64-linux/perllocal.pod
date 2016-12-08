@@ -1,0 +1,44 @@
+=head2 Sat Apr 25 07:34:54 2015: C<Module> L<Bloom::Faster|Bloom::Faster>
+
+=over 4
+
+=item *
+
+C<installed into: ./bloom5-16-3/lib/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.7>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Mon Apr 27 09:34:25 2015: C<Module> L<Bloom::Faster|Bloom::Faster>
+
+=over 4
+
+=item *
+
+C<installed into: ./bloom5-16-3/lib/site_perl>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.7>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+

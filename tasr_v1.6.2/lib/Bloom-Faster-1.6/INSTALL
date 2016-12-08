@@ -1,0 +1,25 @@
+
+option 1: build libbloom as a static library and attach to perl module:
+
+cd leopold-0.7
+./configure
+make
+cd ..
+perl Makefile.PL
+make
+make test
+sudo make install
+#############################################################################
+
+option 2: build libbloom as a shared library.  this will make its routines available to other programs (that you might write), as well as installing bloom, a c executable implementing a bloom filter.  
+
+cd leopold-0.7
+./configure
+make 
+sudo make install
+cd ..
+cp Makefile.shared Makefile.PL
+perl Makefile.PL
+make
+make test
+sudo make install
