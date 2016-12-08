@@ -51,7 +51,7 @@ The -a option is used to specify the location of samtools in your system. If .ba
 Support for sequence target-independent de novo assemblies
 
 The -i option instructs TASR to use target sequences for the sole purpose of recruiting sequence reads.  If set (-i 1) the target sequences will not seed de novo assemblies and this task will be achieved by recruited reads in a target-independent fashion instead. This has the advantage of allowing the user to provide, as a target, a large reference sequence (-s) without a priori knowledge of variant bases or other structural variants.
-
+<pre>
 e.g. 
 
 ORF REFERENCE:
@@ -83,7 +83,7 @@ Contig created:
 XXXOXXXXXX
 
 Where "O" represents a variant base 
-
+</pre>
 
 ###What's new in version 1.2?
 --------------------------
@@ -110,20 +110,20 @@ TASR is implemented in PERL and runs on any platform where PERL is installed
 -------
 
 Download the .tar.gz, gunzip and extract the files on your system using:
-
+<pre>
 gunzip tasr_v1-6.tar.gz
 tar -xvf tasr_v1-6.tar
-
+</pre>
 The Bloom::Faster PERL library was built against various version of PERL
-
+<pre>
 ./lib/Bloom-Faster-1.7/
 bloom5-10-0
 bloom5-16-0
 bloom5-16-3
 bloom5-18-1
-
+</pre>
 To re-build against YOUR PERL version, follow these easy steps:
-
+<pre>
 1. cd ./lib/Bloom-Faster-1.7
 2. /gsc/software/linux-x86_64/perl-5.10.0/bin/perl Makefile.PL
 PREFIX=./bloom5-10-0
@@ -132,7 +132,7 @@ PREFIX=./bloom5-10-0
 4. make install
 5. change line 236 in TASR-Bloom to reflect the location of the Bloom library
 5. test: /gsc/software/linux-x86_64/perl-5.10.0/bin/perl ../../TASR-Bloom
-
+</pre>
 Change the shebang line of TASR to point to the version of PERL installed on your system and you're good to go.
 
  
@@ -157,7 +157,7 @@ Warren RL, Sutton GG, Jones SJM, Holt RA.  2007.  Assembling millions of short D
 
 ###Running TASR
 ------------
-
+<pre>
 e.g. ../TASR -s targets.fa -f foobar.fof -m 15 -c 1
 
 Usage: ./TASR [v1.6]
@@ -182,7 +182,7 @@ Usage: ./TASR [v1.6]
 -e  ASCII offset (33=standard 64=illumina, default -n 33, optional)
 -b  Base name for your output files (optional)
 -v  Runs in verbose mode (-v 1 = yes, default = no, optional)
-
+</pre>
 
 ###Test data
 ---------
@@ -190,7 +190,7 @@ Usage: ./TASR [v1.6]
 Execute "runme.sh"
 -or-
 Run:
-
+<pre>
 A. Go to ./test
 B. Get ~4M RNA seq reads from a prostate adenocarcinoma sample:
 wget ftp://ftp.bcgsc.ca/supplementary/SSAKE/SRR066437.fastq.bz2
@@ -199,7 +199,7 @@ C. Decompress reads file:
 D. Notice the file of filename (fof) foobar.fof, which lists SRR066437.fastq
 E. Run TASR, quality-clip mode:
 >../TASR -s targets.fa -f foobar.fof -m 15 -c 1 -u 1
-
+</pre>
 
 ###How it works
 ------------
@@ -227,6 +227,7 @@ The Bloom filter must be built with the ./writeBloom.pl utility in the ./tools f
 
 If lower caps are used in the target sequence, pileup will report the lower case in the reference base column (column 2). This is convenient for observing how many reads (along with strand, quality) align over a coordinate of interest.
 
+<pre>
 e.g. (sequence targets file)
 >dryEarwax-A
 CTCACCAAGTCTGCCACTTACTGGCCaGAGTACACTGGCAATGCAGAAGCAG
@@ -240,7 +241,7 @@ CTCACCAAGTCTGCCACTTACTGGCCtGAGTACACTGGCAATGCAGAAGCAG
 AGTGAGGAAAACACGGAGTTGATGCAcAAGCCCCAACATCCAACCTCGACTC
 >blackHair-G
 AGTGAGGAAAACACGGAGTTGATGCAgAAGCCCCAACATCCAACCTCGACTC
-
+</pre>
 -Reads containing ambiguous bases "." and characters other than ACGT will be ignored entirely
 -Spaces in fasta file are NOT permitted and will either not be considered or result in execution failure
 
@@ -256,7 +257,9 @@ For SNV/SNP detection, always provide a target sequence with the variant of inte
 Placing the base under scrutiny in the middle of the sequence is wise, as it will ensure maximum read coverage.
 Also, we recommend that the target sequence be at least the length of the shortest read supplied (-f), and no longer than twice the read length.
 Given a target sequence length (T) and read length (R), then: 
+<pre>
   R <= T < 2*(R-1)
+</pre>
 
 The same principles can be applied for detecting a translocation or a fusion transcript, although usually less critical, esp. for the latter where depth of coverage is usually not limiting. 
 
@@ -274,9 +277,10 @@ The same principles can be applied for detecting a translocation or a fusion tra
 
 ###Understanding the .contigs fasta header
 ---------------------------------------
-
+<pre>
 e.g.
 >TMPRSS2|size52|read193|cov92.79
+</pre>
 
 target name (from target file)= TMPRSS2
 size (G) = 52 nt
@@ -284,23 +288,23 @@ number of reads (N) = 193
 cov [coverage] (C) = 92.79
 
 the coverage (C) is calculated using the total number (T) of consensus bases [sum(L)] provided by the assembled sequences divided by the contig size:
-
+<pre>
 C = T / G
-
+</pre>
 
 ###Understanding the .coverage.csv file
 ------------------------------------
-
+<pre>
 e.g.
 >contig1|size60000|read74001|cov37.00
 12,12,13,13,13,14,14,15,16,16,20,21,22,23,25,26,27,28,27 ...
-
+</pre>
 Each number represents the number of reads covering that base at that position.
 
 
 ###Understanding the .readposition file
 ------------------------------------
-
+<pre>
 e.g.
 >contig2|size63|read22|cov11.67|target:TMPRSS2:ERG
 TMPRSS2:ERG,1,50,GGCGAGGGGCGGGGAGCGCCGCCTGGAGCGCGGCAGGAAGCCTTATCAGT,
@@ -321,7 +325,7 @@ SRR066437.2634544,55,23,TCACAACTGATAAGGCTTCCTGCCGCGCTCCAG,>>>>>>>>>>6>>>>>>>:>>6
 SRR066437.3918120,56,24,CTCACAACTGATAAGGCTTCCTGCCGCGCTCCA,::7::::::::::::::3:::'6::6:6:)30)
 SRR066437.2949061,57,25,ACTCACAACTGATAAGGCTTCCTGCCGCGCTCC,>>>>>>>>>>>>>>>>>>>>>>=:==:==730-
 SRR066437.1716315,60,28,CTCACTCACAACTGATAAGGCTTCCTGCCGCGC,>>>>>>>>>>>>>>>>>>>>>>=======730-
-
+</pre>
 In this order: read name, start coordinate, end coordinate, read sequence, ascii-encoded quality scores (if applicable)
 * end < start indicates read is on minus strand
 
@@ -331,7 +335,7 @@ In this order: read name, start coordinate, end coordinate, read sequence, ascii
 
 Refer to http://samtools.sourceforge.net/pileup.shtml
 for detailed information on this format
-
+<pre>
 e.g.
 (...)
 TMPRSS2:ERG     51      C       21      .............,,,,,,,, )-,0===:6>6>:>>>>>6>6
@@ -356,7 +360,7 @@ TMPRSS2:ERG     69      G       3       .., 00>
 TMPRSS2:ERG     70      T       3       .., -->
 TMPRSS2:ERG     71      G       1       , >
 TMPRSS2:ERG     72      A       1       , >
-
+</pre>
 "each line consists of chromosome (target name), 1-based coordinate, reference base, the number of reads covering the site, 
 read bases and base qualities. At the read base column, a dot stands for a match to the reference base on the forward strand, a comma for a match on the reverse strand, `ACGTN' for a mismatch on the forward strand and `acgtn' for a mismatch on the reverse strand."
 
