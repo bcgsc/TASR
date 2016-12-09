@@ -63,7 +63,7 @@ my $SAMPATH = "/home/pubseq/BioSw/samtools/0.1.8/samtools"; ### default location
 
 if(! $opt_f || ! $opt_s){
    print "Usage: $0 $version\n";
-   print "-f  File of filenames (FOF) corresponding to .fasta, .fastq or .bam files with NGS reads to interrogate\n";
+   print "-f  File of filenames (FOF) corresponding to .fasta, .fastq or .bam files with NGS reads (bz2/gz/zip support) to interrogate\n";
    print " -a Full path to samtools (required only if .bam files listed in FOF)\n";
    print "-s  Fasta file containing sequences to use as targets exclusively\n";
    print "-w  Minimum depth of coverage allowed for contigs (e.g. -w 1 = process all reads [original behavior], required)\n";
@@ -881,7 +881,16 @@ sub readFastaFastq{
    my $quad = 0;
    my ($seq,$qual) = ("","");
 
-   open(IN,$file) || die "Can't open $file -- fatal\n";
+   ###Support for compressed files MAR/DEC2016
+   if($file=~/zip$/i){
+      open(IN,"unzip -p $file|") || die "Error reading $file -- fatal\n";
+   }elsif($file=~/gz$/i || $file=~/gzip$/i){
+      open(IN,"gunzip -c $file|") || die "Error reading $file -- fatal\n";
+   }elsif($file=~/bz2$/i){
+      open(IN,"bunzip2 -c $file|") || die "Error reading $file -- fatal\n";
+   }else{
+      open(IN,$file) || die "Error reading $file -- fatal\n";
+   }
 
    my $readinput_message = "\nCandidate sequence reads imported from file $file_ct/$ct_fof_line, $file:\n";
    print $readinput_message;

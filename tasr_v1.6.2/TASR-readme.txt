@@ -3,6 +3,7 @@ Targeted Assembly of Sequence Reads (TASR)
 TASR v1.6.2 Rene Warren, 2010-2016
 email: rwarren [at] bcgsc [dot] ca
 
+
 What's new in version 1.6.2?
 ----------------------------
 
@@ -157,8 +158,8 @@ Running TASR
 
 e.g. ../TASR -s targets.fa -f foobar.fof -m 15 -c 1
 
-Usage: ./TASR [v1.6]
--f  File of filenames (FOF) corresponding to .fasta, .fastq or .bam files with NGS reads to interrogate
+Usage: ./TASR [v1.6.2]
+-f  File of filenames (FOF) corresponding to .fasta, .fastq or .bam files with NGS reads (bz2/gz/zip support) to interrogate
  -a Full path to samtools (required only if .bam files listed in FOF)
 -s  Fasta file containing sequences to use as targets exclusively
 -w  Minimum depth of coverage allowed for contigs (e.g. -w 1 = process all reads [original behavior], required)
@@ -166,12 +167,8 @@ Usage: ./TASR [v1.6]
 -o  Minimum number of reads needed to call a base during an extension (default -o 2)
 -r  Minimum base ratio used to accept a overhang consensus base (default -r 0.7)
 -k  Target sequence word size to hash (default -k 15)
-
--l  Bloom filter* containing kmers to exclude (built -k, optional)
-*This option only in TASR-Bloom
-
--u  Re-use NGS reads (-u 1 = yes, default = no, optional)
--i  Independent (de novo) assembly  i.e Targets used to recruit reads for de novo assembly, not guide/seed reference-based assemblies (-i 1 = yes, default = no, optional)
+-u  Re-use NGS reads (-u 0 = no, default = yes, optional)
+-i  Independent (de novo) assembly  i.e Targets used to recruit reads for de novo assembly, not guide/seed reference-based assemblies (-i 1 = yes (default), 0 = no, optional)
   Note: if -i is set to 1, -u will be forced-set to 0 (not re-using reads)
 -c  Quality-clip candidate reads (-c 1 = yes, default = no, optional)
  -q Phred quality score threshold (bases with -q XX and less will be clipped, default -q 10, optional)
