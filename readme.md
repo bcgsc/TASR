@@ -16,13 +16,13 @@ Changed test to explicitely set -i to 1 or 0, for testing purposes (default is -
 ###What's new in version 1.6.1?
 ----------------------------
 
-1) Bloom filter functionality to exclude k-mers from your sequence target space (TASR-Bloom)
+1. Bloom filter functionality to exclude k-mers from your sequence target space (TASR-Bloom)
 TASR and TASR-Bloom:
-2) 4-base encoding of the first 16 bases of each read while populating a 4-nodes (16/4) prefix tree.
-3) The new (and required) coverage depth threshold -w option, gives users more control over the assembly, focusing on higher-depth contigs and ignoring short, low-depth contigs comprised of NGS reads having errors, contaminating reads or any other (perhaps unwanted) sequences.
-4) Improvements to read recruitement from sorted-by-name bams, recruiting whole read pairs when at least one read has a target seed k-mer match. This has the potential to extend the reconstructed contigs by 2X the library fragment size (upstream and downstream) of the target sequence.
-5) Support for compressed reads file (zip/gz)
-6) The de novo assembly mode (-i 1) is now the default mode
+2. 4-base encoding of the first 16 bases of each read while populating a 4-nodes (16/4) prefix tree.
+3. The new (and required) coverage depth threshold -w option, gives users more control over the assembly, focusing on higher-depth contigs and ignoring short, low-depth contigs comprised of NGS reads having errors, contaminating reads or any other (perhaps unwanted) sequences.
+4. Improvements to read recruitement from sorted-by-name bams, recruiting whole read pairs when at least one read has a target seed k-mer match. This has the potential to extend the reconstructed contigs by 2X the library fragment size (upstream and downstream) of the target sequence.
+5. Support for compressed reads file (zip/gz)
+6. The de novo assembly mode (-i 1) is now the default mode
 
 
 ###What's new in version 1.5.1?
@@ -151,9 +151,10 @@ Questions or comments?  We would love to hear from you!
 Thank you for using, developing and promoting this free software.
 If you use TASR or SSAKE for you research, please cite:
 
+<pre>
 Warren RL, Holt RA, 2011 Targeted Assembly of Short Sequence Reads. PLoS ONE 6(5): e19816. doi:10.1371/journal.pone.0019816 
 Warren RL, Sutton GG, Jones SJM, Holt RA.  2007.  Assembling millions of short DNA sequences using SSAKE.  Bioinformatics. 23(4):500-501
-
+</pre>
 
 ###Running TASR
 ------------
@@ -264,12 +265,14 @@ The same principles can be applied for detecting a translocation or a fusion tra
 ###Output files
 ------------
 
-.contigs         :: fasta file; All sequence contigs
-.log             :: text file; Logs execution time / errors / pairing stats (if -p is set to 1)
-.singlets        :: fasta file; Unassembled sequence targets
-.readposition    :: this is a text file listing all whole (fully embedded) reads, start and end coordinate onto the contig (in this order).  For reads aligning on the minus strand, end coordinate is < start coordinate
-.coverage.csv    :: this is a comma separated values file showing the base coverage at every position for any given contig 
-.pileup          :: produces a modified pileup output (see below)
+Output file|Description
+---|---
+.contigs         | fasta file; All sequence contigs
+.log             | text file; Logs execution time / errors / pairing stats (if -p is set to 1)
+.singlets        | fasta file; Unassembled sequence targets
+.readposition    | this is a text file listing all whole (fully embedded) reads, start and end coordinate onto the contig (in this order).  For reads aligning on the minus strand, end coordinate is < start coordinate
+.coverage.csv    | this is a comma separated values file showing the base coverage at every position for any given contig 
+.pileup          | produces a modified pileup output (see below)
 
 
 ###Understanding the .contigs fasta header
