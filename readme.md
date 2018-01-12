@@ -1,3 +1,4 @@
+![Logo](https://github.com/warrenlr/tasr/blob/master/tasr-logo.png)
 # TASR
 
 ## Targeted Assembly of Sequence Reads (TASR)
