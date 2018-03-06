@@ -73,6 +73,7 @@ if(! $opt_f || ! $opt_s){
    print "-i  Independent (de novo) assembly  i.e Targets used to recruit reads for de novo assembly, not guide/seed reference-based assemblies (-i 1 = yes (default), 0 = no, optional)\n";
    print "  Note: if -i is set to 1, -u will be forced-set to 0 (not re-using reads)\n";
 #  print "-t  Trim up to -t base(s) on the contig end when all possibilities have been exhausted for an extension (default -t $max_trim, optional)\n";
+   print "-t  Number of threads
    print "-c  Quality-clip candidate reads (-c 1 = yes, default = no, optional)\n";
    print " -q Phred quality score threshold (bases with -q XX and less will be clipped, default -q $q_clip, optional)\n";
    print " -n Number of consecutive -q $q_clip bases (default -n $c_clip, optional)\n";
