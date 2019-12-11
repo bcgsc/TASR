@@ -1,3 +1,7 @@
+[![Release](https://img.shields.io/github/release/warrenlr/TASR.svg)](https://github.com/warrenlr/TASR/releases)
+[![Downloads](https://img.shields.io/github/downloads/warrenlr/TASR/total?logo=github)](https://github.com/warrenlr/TASR/releases/download/v1.6.2/TASR-1.6.2.tar.gz)
+[![Issues](https://img.shields.io/github/issues/warrenlr/TASR.svg)](https://github.com/warrenlr/TASR/issues)
+
 ![Logo](https://github.com/warrenlr/tasr/blob/master/tasr-logo.png)
 # TASR
 
@@ -149,7 +153,8 @@ Questions or comments?  We would love to hear from you!
 ### Citing TASR
 -----------
 
-Thank you for using, developing and promoting this free software.
+Thank you for your [![Stars](https://img.shields.io/github/stars/warrenlr/TASR.svg)](https://github.com/warrenlr/TASR/stargazers) and for using, developing and promoting this free software.
+
 If you use TASR or SSAKE for you research, please cite:
 
 <pre>
