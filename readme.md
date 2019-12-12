@@ -8,7 +8,6 @@
 ## Targeted Assembly of Sequence Reads (TASR)
 ## TASR v1.6.2 Rene Warren, 2010-2020
 ## email: rwarren [at] bcgsc [dot] ca
-## Visit www.bcgsc.ca/bioinfo/software/tasr for more information
 
 
 ### What's new in version 1.6.2?
@@ -145,7 +144,6 @@ Change the shebang line of TASR to point to the version of PERL installed on you
 -------------
 
 Refer to the TASR.readme file on how to run SSAKE and the SSAKE web site for information about the software and its performance 
-www.bcgsc.ca/bioinfo/software/tasr
 
 Questions or comments?  We would love to hear from you!
 
@@ -202,7 +200,7 @@ Run:
 <pre>
 A. Go to ./test
 B. Get ~4M RNA seq reads from a prostate adenocarcinoma sample:
-wget ftp://ftp.bcgsc.ca/supplementary/SSAKE/SRR066437.fastq.bz2
+wget https://www.bcgsc.ca/downloads/supplementary/SSAKE/SRR066437.fastq.bz2
 C. Decompress reads file:
 >bunzip2 SRR066437.fastq.bz2
 D. Notice the file of filename (fof) foobar.fof, which lists SRR066437.fastq
