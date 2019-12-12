@@ -159,8 +159,13 @@ If you use TASR or SSAKE for you research, please cite:
 
 <pre>
 Warren RL, Holt RA, 2011 Targeted Assembly of Short Sequence Reads. PLoS ONE 6(5): e19816. doi:10.1371/journal.pone.0019816 
+</pre>
+[![link](https://img.shields.io/badge/TASR-manuscript-brightgreen)](https://doi.org/10.1371/journal.pone.0019816)
+<pre>
 Warren RL, Sutton GG, Jones SJM, Holt RA.  2007.  Assembling millions of short DNA sequences using SSAKE.  Bioinformatics. 23(4):500-501
 </pre>
+[![link](https://img.shields.io/badge/SSAKE-manuscript-brightgreen)](https://doi.org/10.1093/bioinformatics/btl629)
+
 
 ### Running TASR
 ------------
