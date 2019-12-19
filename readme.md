@@ -375,13 +375,14 @@ read bases and base qualities. At the read base column, a dot stands for a match
 
 If applicable, ascii-encoded quality score follow the read base column.
 
+<pre>
 NOTES:
 *Read beginning and end aren't listed here.  Refer to .readposition to retrieve this information.
 ** "0" in the coverage column mean:
 -The target sequence isn't covered by any read (most likely scenario)
 -Although TASR extends the target sequences using a majority rule to determine the consensus sequence, individual reads that do not map with 100% sequence identity (over the whole read) to the consensus will influence the depth of coverage and cause the assembly to terminate.  The consensus is presented as-is.  *All reads that contributed to the assembly AND overlap *perfectly* the consensus will be listed in the .readposition and .pileup
 -If target sequences supplied (-s) are identical, both the .pileup and .readposition will comprise information that reflects this. i.e.  Though TASR does not assemble targets together, identical sequences provided as input will be listed as one having the base coverage consistent with the input. 
-
+</pre>
 
 ### License
 -------
