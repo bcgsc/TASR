@@ -1,6 +1,7 @@
 [![Release](https://img.shields.io/github/release/warrenlr/TASR.svg)](https://github.com/warrenlr/TASR/releases)
 [![Downloads](https://img.shields.io/github/downloads/warrenlr/TASR/total?logo=github)](https://github.com/warrenlr/TASR/releases/download/v1.6.2/TASR-1.6.2.tar.gz)
 [![Issues](https://img.shields.io/github/issues/warrenlr/TASR.svg)](https://github.com/warrenlr/TASR/issues)
+[![link](https://img.shields.io/badge/TASR-manuscript-brightgreen)](https://doi.org/10.1371/journal.pone.0019816)
 
 ![Logo](https://github.com/warrenlr/tasr/blob/master/tasr-logo.png)
 # TASR
