@@ -7,7 +7,7 @@
 # TASR
 
 ## Targeted Assembly of Sequence Reads (TASR)
-## TASR v1.6.2 Rene Warren, 2010-2020
+## TASR v1.6.2 Rene Warren, 2010-2023
 ## email: rwarren [at] bcgsc [dot] ca
 
 
@@ -388,7 +388,7 @@ NOTES:
 ### License
 -------
 
-TASR Copyright (c) 2010-2020 Canada's Michael Smith Genome Science Centre.  All rights reserved.
+TASR Copyright (c) 2010-2023 Canada's Michael Smith Genome Science Centre.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
