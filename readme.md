@@ -8,7 +8,6 @@
 
 ## Targeted Assembly of Sequence Reads (TASR)
 ## TASR v1.6.2 Rene Warren, 2010-2023
-## email: rwarren [at] bcgsc [dot] ca
 
 
 ### What's new in version 1.6.2?
