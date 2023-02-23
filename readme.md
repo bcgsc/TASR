@@ -9,7 +9,7 @@
 ## Targeted Assembly of Sequence Reads (TASR)
 ## TASR v1.6.2 Rene Warren, 2010-2023
 
-### CONTENTS
+### Contents
 --------
 1. [Description](#des)
 2. [What's new](#new)
