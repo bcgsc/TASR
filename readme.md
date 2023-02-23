@@ -9,8 +9,35 @@
 ## Targeted Assembly of Sequence Reads (TASR)
 ## TASR v1.6.2 Rene Warren, 2010-2023
 
+### CONTENTS
+--------
+1. [Description](#des)
+2. [What's new](#new)
+3. [Implementation and requirements](#imp)
+4. [Installation](#install)
+5. [Documentation](#doc)
+6. [Citing TASR](#citing)
+7. [Running TASR](#run)
+8. [Test data](#test)
+9. [Algorithm](#algo)
+10. [TASR-Bloom](#tasrbloom)
+11. [Input](#input)
+12. [Tips for choosing target sequences](#tips)
+13. [Output](#output)
+14. [License](#license)
+--------
 
-### What's new in version 1.6.2?
+
+### Description <a name=des></a>
+-----------
+
+Targeted Assembly of Sequence Reads (TASR) using the SSAKE assembly engine.
+TASR is a genomics application that allows hypothesis-based interrogation of genomic regions (sequence targets) of interest.
+*It only considers reads for assembly that have overlap potential to input target sequences.
+TASR is a tool for targeted sequence assembly
+
+
+### What's new in version 1.6.2? <a name=new></a>
 ----------------------------
 
 Minor bug fix that prevented TASR from running in reference-guided mode (-i 0). Thanks to Matthew Hobbs for reporting it.
@@ -96,21 +123,13 @@ The -f option input reads via a file of filenames (fof).  The latter lists any f
 One file per line must be specified, full path to your file(s) is recommended.
 
 
-### Description
------------
-
-Targeted Assembly of Sequence Reads (TASR) using the SSAKE assembly engine.
-TASR is a genomics application that allows hypothesis-based interrogation of genomic regions (sequence targets) of interest.
-*It only considers reads for assembly that have overlap potential to input target sequences. 
-
-
-### Implementation and requirements
+### Implementation and requirements <a name=imp></a>
 -------------------------------
 
 TASR is implemented in PERL and runs on any platform where PERL is installed 
 
 
-### Install
+### Installation <a name=install></a>
 -------
 
 Download the .tar.gz, gunzip and extract the files on your system using:
@@ -140,7 +159,7 @@ PREFIX=./bloom5-10-0
 Change the shebang line of TASR to point to the version of PERL installed on your system and you're good to go.
 
  
-### Documentation
+### Documentation <a name=doc></a>
 -------------
 
 Refer to the TASR.readme file on how to run SSAKE and the SSAKE web site for information about the software and its performance 
@@ -148,7 +167,7 @@ Refer to the TASR.readme file on how to run SSAKE and the SSAKE web site for inf
 Questions or comments?  We would love to hear from you!
 
 
-### Citing TASR
+### Citing TASR <a name=citing></a>
 -----------
 
 Thank you for your [![Stars](https://img.shields.io/github/stars/warrenlr/TASR.svg)](https://github.com/warrenlr/TASR/stargazers) and for using, developing and promoting this free software!
@@ -165,7 +184,7 @@ Warren RL, Sutton GG, Jones SJM, Holt RA.  2007.  Assembling millions of short D
 [![link](https://img.shields.io/badge/SSAKE-manuscript-brightgreen)](https://doi.org/10.1093/bioinformatics/btl629)
 
 
-### Running TASR
+### Running TASR <a name=run></a>
 ------------
 <pre>
 e.g. ../TASR -s targets.fa -f foobar.fof -m 15 -c 1
@@ -191,7 +210,7 @@ Usage: ./TASR [v1.6.2]
 
 </pre>
 
-### Test data
+### Test data <a name=test></a>
 ---------
 
 Execute "runme.sh"
@@ -208,7 +227,7 @@ E. Run TASR, quality-clip mode:
 >../TASR -s targets.fa -f foobar.fof -m 15 -c 1 -u 1
 </pre>
 
-### How it works
+### Algorithm <a name=algo></a>
 ------------
 
 If the -s option is set and points to a valid fasta file, the DNA sequences comprised in that file will populate the hash table and be used exclusively as seeds to nucleate contig extensions (they will not be utilized to build the prefix tree).  In that scheme, every unique sequence target will be used in turn to nucleate an extension, using short reads found in the tree (specified in -f).  This feature might be useful if you already have characterized sequences & want to increase their length using short reads.  That said, since the short reads are not used as seeds when -s is set, they will not cluster to one another WITHOUT a target sequence file. 
@@ -218,7 +237,7 @@ The .singlets will ONLY list sequence targets for which there are no overlapping
 DNA sequence reads in a fastq or fasta format are fed into into the algorithm via a file of filenames using the ‚ -f option.  DNA sequence targets, used to interrogate all reads are supplied as a multi fasta file using the ‚-s option.  Sequence targets are read first. From each target, every possible 15-character word (or user-defined -k) from the plus and minus strands is extracted and stored in a hash table. As the bulk of the NGS sequences are read, quality trimming is possible at run-time, provided that a fastq file is supplied, concurrently with the ‚-c 1 option. In SSAKE, the first 15bp of each read and of its reverse complement are unconditionally used as an index to fill the prefix tree.  In TASR, only those with matching 15-mer (-k mer) in the target sequence set are considered, thus limiting the sequence space to that of the target sequence. Low-complexity and large DNA sequence target will draw in more reads, which will impact the performance of TASR.  
 
 
-### TASR-Bloom
+### TASR-Bloom <a name=tasrbloom></a>
 ----------
 
 TASR-Bloom uses a Bloom filter supplied with the -l option, to eliminate target k-mers for recruiting reads.
@@ -226,7 +245,7 @@ This could be useful for removing low-complexity or repeat k-mers in the supplie
 The Bloom filter must be built with the ./writeBloom.pl utility in the ./tools folder and the k-mer length must match that supplied (-k).
 
 
-### Input sequences
+### Input <a name=input></a>
 ---------------
 
 -f file of filenames corresponding to fasta or fastq files
@@ -253,7 +272,7 @@ AGTGAGGAAAACACGGAGTTGATGCAgAAGCCCCAACATCCAACCTCGACTC
 -Spaces in fasta file are NOT permitted and will either not be considered or result in execution failure
 
 
-### Tips for choosing target sequences
+### Tips for choosing target sequences <a name=tips></a>
 ----------------------------------
 
 The length and sequence complexity of a target will have tremendous influence on the outcome of the assembly. Of course, depending on your application (SNV search, confirming SNPs, detecting fusion transcripts), the length & complexity may or may not matter.
@@ -271,7 +290,7 @@ Given a target sequence length (T) and read length (R), then:
 The same principles can be applied for detecting a translocation or a fusion transcript, although usually less critical, esp. for the latter where depth of coverage is usually not limiting. 
 
 
-### Output files
+### Output <a name=output></a>
 ------------
 
 Output file|Description
@@ -384,7 +403,7 @@ NOTES:
 -If target sequences supplied (-s) are identical, both the .pileup and .readposition will comprise information that reflects this. i.e.  Though TASR does not assemble targets together, identical sequences provided as input will be listed as one having the base coverage consistent with the input. 
 </pre>
 
-### License
+### License <a name=license></a>
 -------
 
 TASR Copyright (c) 2010-2023 Canada's Michael Smith Genome Science Centre.  All rights reserved.
